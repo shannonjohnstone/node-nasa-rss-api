@@ -10,9 +10,9 @@ jest.mock("../integration/rss-feed", () => {
 });
 
 describe("Root endpoint", () => {
-  it("should return 200", (done) => {
-    request.get("/").expect(200).end(done);
-    // expect(res.status).toBe(200);
+  it("should return 200", async () => {
+    const res = await request.get("/");
+    expect(res.status).toBe(200);
   });
 });
 

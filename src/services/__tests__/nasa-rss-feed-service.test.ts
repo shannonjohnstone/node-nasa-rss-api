@@ -1,4 +1,4 @@
-import { getNasaRssResponse, getSortedNasaRssResponse } from "../nasa-rss-feed-service";
+import { getNasaRssResponse } from "../nasa-rss-feed-service";
 import { ORDER } from "../../utilities/nasa-rss-feed-types";
 
 jest.mock("../../integration/rss-feed", () => {
@@ -24,13 +24,13 @@ describe("NASA RSS feed service", () => {
     });
 
     it("should order dsc", async () => {
-      const response = await getSortedNasaRssResponse(ORDER.DSC);
+      const response = await getNasaRssResponse({ order: ORDER.DSC, });
 
       expect(response.episodes[0].title).toEqual("Liftoff Live");
     });
 
     it("should order asc", async () => {
-      const response = await getSortedNasaRssResponse(ORDER.ASC);
+      const response = await getNasaRssResponse({ order: ORDER.ASC, });
 
       expect(response.episodes[0].title).toEqual("International Space Station");
     });

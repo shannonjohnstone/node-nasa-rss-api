@@ -31,15 +31,11 @@ function sortItemsToReturn({ rssResponse, limit = 10, order = ORDER.DSC, }: Sort
   };
 }
 
-
-export async function getNasaRssResponse(): Promise<RssFeedResponse> {
-  const rssResponse = await requestRssFeed(NASA_RSS_FEED_ENDPOINT);
-  const rssWithSortedItems = sortItemsToReturn({ rssResponse, });
-
-  return formatResponse(rssWithSortedItems);
+interface GetNasaRssResponse {
+  order?: ORDER.ASC | ORDER.DSC
 }
 
-export async function getSortedNasaRssResponse(order?: ORDER.ASC | ORDER.DSC): Promise<RssFeedResponse> {
+export async function getNasaRssResponse({ order = ORDER.DSC, }: GetNasaRssResponse = {}): Promise<RssFeedResponse> {
   const rssResponse = await requestRssFeed(NASA_RSS_FEED_ENDPOINT);
   const rssWithSortedItems = sortItemsToReturn({ rssResponse, order, });
 
