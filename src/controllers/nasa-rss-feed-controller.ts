@@ -11,10 +11,12 @@ export async function getNasaRssFeedResponse(req: Request, res: Response): Promi
   res.send(rssResponse);
 }
 
-type ReqQuery = { order?: ORDER.ASC | ORDER.DSC }
+interface RssFeedRequest extends Request {
+  query: { order?: ORDER.ASC | ORDER.DSC }
+}
 
 /* eslint-disable-next-line */
-export async function getSortedNasaRssFeedResponse(req: Request<any, any, any, ReqQuery>, res: Response): Promise<void> {
+export async function getSortedNasaRssFeedResponse(req: RssFeedRequest, res: Response): Promise<void> {
   const { order, } = req.query;
 
   // validation of the order parameter could have been its own controller or middleware

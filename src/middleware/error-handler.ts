@@ -3,7 +3,7 @@ import { ErrorRequestHandler, Response, Request, NextFunction } from "express";
 interface ExpressErrorInterface extends ErrorRequestHandler {
   message?: string
   status?: number
-  stack?: any
+  stack?: unknown
 }
 
 export function errorHandler(err: ExpressErrorInterface, req: Request, res: Response, next: NextFunction): void {
