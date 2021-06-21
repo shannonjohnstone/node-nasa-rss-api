@@ -17,6 +17,7 @@ type ReqQuery = { order?: ORDER.ASC | ORDER.DSC }
 export async function getSortedNasaRssFeedResponse(req: Request<any, any, any, ReqQuery>, res: Response): Promise<void> {
   const { order, } = req.query;
 
+  // validation of the order parameter could have been its own controller or middleware
   if (isValidQuery(order)) {
     const rssResponse = await getNasaRssResponse({ order, });
     res.send(rssResponse);
