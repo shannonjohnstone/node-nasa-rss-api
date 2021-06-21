@@ -4,7 +4,13 @@ import { ORDER, RssFeedResponse, NASARssFeedItems } from "../utilities/nasa-rss-
 
 const NASA_RSS_FEED_ENDPOINT = "https://www.nasa.gov/rss/dyn/Houston-We-Have-a-Podcast.rss";
 
-function sortItemsToReturn(rssResponse: any, limit = 10, order?: string) {
+interface SortedItems {
+  rssResponse: any
+  limit?: number,
+  order?: string
+}
+
+function sortItemsToReturn({ rssResponse, limit = 10, order = ORDER.DSC, }: SortedItems) {
   const sortedItems = rssResponse.items.sort((a: NASARssFeedItems, b: NASARssFeedItems) => {
     if (order === ORDER.ASC) {
       // @ts-ignore
@@ -28,12 +34,14 @@ function sortItemsToReturn(rssResponse: any, limit = 10, order?: string) {
 
 export async function getNasaRssResponse(): Promise<RssFeedResponse> {
   const rssResponse = await requestRssFeed(NASA_RSS_FEED_ENDPOINT);
+  const rssWithSortedItems = sortItemsToReturn({ rssResponse, });
 
-  return formatResponse(sortItemsToReturn(rssResponse, 10, ORDER.DSC));
+  return formatResponse(rssWithSortedItems);
 }
 
 export async function getSortedNasaRssResponse(order?: ORDER.ASC | ORDER.DSC): Promise<RssFeedResponse> {
   const rssResponse = await requestRssFeed(NASA_RSS_FEED_ENDPOINT);
+  const rssWithSortedItems = sortItemsToReturn({ rssResponse, order, });
 
-  return formatResponse(sortItemsToReturn(rssResponse, 10, order));
+  return formatResponse(rssWithSortedItems);
 }

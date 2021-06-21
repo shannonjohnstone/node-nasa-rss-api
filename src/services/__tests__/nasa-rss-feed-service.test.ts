@@ -1,6 +1,12 @@
 import { getNasaRssResponse, getSortedNasaRssResponse } from "../nasa-rss-feed-service";
 import { ORDER } from "../../utilities/nasa-rss-feed-types";
 
+jest.mock("../../integration/rss-feed", () => {
+  return {
+    requestRssFeed: () => require("../../utilities/__tests__/json-nasa-rss-mock.json"),
+  };
+});
+
 describe("NASA RSS feed service", () => {
   describe("getNasaRssFeedService", () => {
     it("should meet basic requirements", async () => {

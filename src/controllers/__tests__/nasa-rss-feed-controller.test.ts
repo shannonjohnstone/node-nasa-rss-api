@@ -7,7 +7,6 @@ jest.mock("../../integration/rss-feed", () => {
   };
 });
 
-
 describe("NASA product RSS feed controller", () => {
   it("getNasaRssFeedResponse", async () => {
     const spy = jest.fn();

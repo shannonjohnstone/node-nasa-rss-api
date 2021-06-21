@@ -1,12 +1,18 @@
 import supertest from "supertest";
-import { app } from "../index";
+import { app } from "../server";
 
 const request = supertest(app);
 
+jest.mock("../integration/rss-feed", () => {
+  return {
+    requestRssFeed: () => require("../utilities/__tests__/json-nasa-rss-mock.json"),
+  };
+});
+
 describe("Root endpoint", () => {
-  it("should return 200", async () => {
-    const res = await request.get("/");
-    expect(res.status).toBe(200);
+  it("should return 200", (done) => {
+    request.get("/").expect(200).end(done);
+    // expect(res.status).toBe(200);
   });
 });
 
