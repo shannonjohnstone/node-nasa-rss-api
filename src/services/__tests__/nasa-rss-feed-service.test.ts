@@ -23,6 +23,12 @@ describe("NASA RSS feed service", () => {
       expect(response.episodes.length).toEqual(10);
     });
 
+    it("should order dsc by default", async () => {
+      const response = await getNasaRssResponse();
+
+      expect(response.episodes[0].title).toEqual("Liftoff Live");
+    });
+
     it("should order dsc", async () => {
       const response = await getNasaRssResponse({ order: ORDER.DSC, });
 

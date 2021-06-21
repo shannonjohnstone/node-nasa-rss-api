@@ -4,7 +4,7 @@ export interface NASARssFeedItems {
   pubDate: string
   enclosure: { url: string }
 }
-export interface FormateResponse {
+export interface NASARssFeed {
   title: string
   description: string
   items: NASARssFeedItems[]
