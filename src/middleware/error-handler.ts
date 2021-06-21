@@ -1,4 +1,4 @@
-import { ErrorRequestHandler, Response, Request, NextFunction } from "express"
+import { ErrorRequestHandler, Response, Request, NextFunction } from "express";
 
 interface ExpressErrorInterface extends ErrorRequestHandler {
   message?: string
@@ -6,7 +6,7 @@ interface ExpressErrorInterface extends ErrorRequestHandler {
   stack?: any
 }
 
-export function errorHandler(err: ExpressErrorInterface, req: Request, res: Response, next: NextFunction) {
+export function errorHandler(err: ExpressErrorInterface, req: Request, res: Response, next: NextFunction): void {
   const status = err?.status || 500;
 
   const error = {
