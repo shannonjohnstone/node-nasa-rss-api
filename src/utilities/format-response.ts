@@ -17,6 +17,6 @@ export function formatResponse(response: any, limit = 10) {
   return {
     title: title,
     description: description,
-    episodes: items.map(formatEpisodes).slice(0, limit),
+    episodes: items.map(formatEpisodes)
   };
 }

@@ -1,3 +1,4 @@
+export enum ORDER { ASC = "asc", DSC = "dsc" }
 export interface NASARssFeedItems {
   title: string
   pubDate: string

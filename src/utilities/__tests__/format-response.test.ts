@@ -26,10 +26,10 @@ describe("Format response", () => {
 
     });
 
-    it("should have 10 episodes", () => {
-      const { episodes, } = formatResponse(jsonMockNasaRssResponse, 10);
+    // it("should have 10 episodes", () => {
+    //   const { episodes, } = formatResponse(jsonMockNasaRssResponse, 10);
 
-      expect(episodes.length).toEqual(10);
-    });
+    //   expect(episodes.length).toEqual(10);
+    // });
   });
 });
