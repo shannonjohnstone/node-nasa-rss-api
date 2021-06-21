@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { ORDER } from "../utilities/nasa-rss-feed-types";
-import { getNasaRssResponse, getSortedNasaRssResponse } from "../servcies/nasa-rss-feed-service";
+import { getNasaRssResponse, getSortedNasaRssResponse } from "../services/nasa-rss-feed-service";
 
 function isValidQuery(query?: unknown): boolean {
   return !!query && (query === ORDER.ASC || query === ORDER.DSC);

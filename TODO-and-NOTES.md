@@ -14,3 +14,4 @@ NOTES
     - this way the controllers is just handling the final response
     - this is also a well know pattern
     - could have left in the controller given its such a small example (for now)
+- a couple of small TypeScript issues remaining but ran out of time
