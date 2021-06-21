@@ -9,3 +9,10 @@ describe("Root endpoint", () => {
     expect(res.status).toBe(200);
   });
 });
+
+describe("Route not found", () => {
+  it("should return 404", async () => {
+    const res = await request.get("/this-is-not-the-route-your-are-looking-for");
+    expect(res.status).toBe(404);
+  });
+});
