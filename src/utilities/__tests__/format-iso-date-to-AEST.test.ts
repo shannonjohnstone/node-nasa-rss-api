@@ -1,4 +1,4 @@
-const convertISODateToAEST = require("../format-iso-date-to-AEST").convertISODateToAEST;
+import { convertISODateToAEST } from "../format-iso-date-to-AEST";
 
 const mockData = {
   validDate: "2021-03-12T15:30:00.000Z",
@@ -17,8 +17,9 @@ describe("Date converter should", () => {
 
   it("should return error message if date is invalid", () => {
     try {
-      convertISODateToAEST(mockData.invalidResponse);
-    } catch(error) {
+      // convertISODateToAEST(mockData.invalidResponse); // typescript complain about invalid type
+      convertISODateToAEST("");
+    } catch (error) {
       expect(error).toMatch(expectedReturnData.invalidResponse);
     }
   });

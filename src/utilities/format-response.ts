@@ -1,9 +1,11 @@
-const { convertISODateToAEST, } = require("./format-iso-date-to-AEST");
+import { convertISODateToAEST, } from "./format-iso-date-to-AEST";
+import { NASARssFeedItems } from "./nasa-rss-feed-types"
 
-function formatResponse(response, limit) {
+// TODO: come back tp response: any
+export function formatResponse(response: any, limit = 10) {
   const { title, description, items, } = response;
 
-  function formatEpisodes(episode) {
+  function formatEpisodes(episode: NASARssFeedItems) {
     const { title, pubDate, enclosure, } = episode;
     return {
       title: title,
@@ -18,7 +20,3 @@ function formatResponse(response, limit) {
     episodes: items.map(formatEpisodes).slice(0, limit),
   };
 }
-
-module.exports = {
-  formatResponse,
-};

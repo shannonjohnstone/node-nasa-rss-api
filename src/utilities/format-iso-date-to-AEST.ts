@@ -1,4 +1,4 @@
-function convertISODateToAEST(isoDate) {
+export function convertISODateToAEST(isoDate: string) {
   try {
     const event = new Date(isoDate);
     const formatDate = event.toLocaleString("en-AU", { timeZone: "Australia/Sydney", });
@@ -8,7 +8,3 @@ function convertISODateToAEST(isoDate) {
     console.log("Error:", error.message);
   }
 }
-
-module.exports = {
-  convertISODateToAEST,
-};

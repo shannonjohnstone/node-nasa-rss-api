@@ -1,5 +1,5 @@
-const supertest = require("supertest");
-const app = require("../index");
+import supertest from "supertest";
+import { app } from "../index";
 
 const request = supertest(app);
 

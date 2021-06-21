@@ -1,5 +1,5 @@
-const { formatResponse, } = require("../format-response");
-const jsonMockNasaRssResponse = require("./json-nasa-rss-mock.json");
+import { formatResponse, } from "../format-response";
+import jsonMockNasaRssResponse from "./json-nasa-rss-mock.json";
 
 
 describe("Format response", () => {
@@ -20,7 +20,7 @@ describe("Format response", () => {
       expect(firstEpisode.title).toEqual("Liftoff Live");
 
       expect(firstEpisode.publishedDate).toEqual("19/06/2021, 12:35:00 am AEST");
-      
+
       /* eslint-disable-next-line*/
       expect(firstEpisode.audioUrl).toEqual("http://www.nasa.gov/sites/default/files/atoms/audio/ep200_liftoff_live.mp3");
 
@@ -28,7 +28,7 @@ describe("Format response", () => {
 
     it("should have 10 episodes", () => {
       const { episodes, } = formatResponse(jsonMockNasaRssResponse, 10);
-      
+
       expect(episodes.length).toEqual(10);
     });
   });
