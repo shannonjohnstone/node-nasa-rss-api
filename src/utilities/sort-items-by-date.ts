@@ -7,7 +7,10 @@ interface SortedItems {
 }
 
 export function sortItemsByDate({ rssResponse, limit, order, }: SortedItems): NASARssFeed {
-  const sortedItems = rssResponse.items.sort((a: NASARssFeedItems, b: NASARssFeedItems) => {
+  // make sure a new array is sorted, not to mutate, was not causing an issue but could do in the future
+  const items = [...rssResponse.items,];
+
+  const sortedItems = items.sort((a: NASARssFeedItems, b: NASARssFeedItems) => {
     const key = "pubDate";
 
     if (order === ORDER.ASC) {
@@ -20,7 +23,7 @@ export function sortItemsByDate({ rssResponse, limit, order, }: SortedItems): NA
       return new Date(b[key]) - new Date(a[key]);
     }
 
-    return -1;
+    return 1;
   }).slice(0, limit);
 
   return {
