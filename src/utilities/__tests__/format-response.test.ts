@@ -1,4 +1,4 @@
-import { formatResponse, } from "../format-response";
+import { formatResponse } from "../format-response";
 import jsonMockNasaRssResponse from "./json-nasa-rss-mock.json";
 
 
@@ -25,11 +25,5 @@ describe("Format response", () => {
       expect(firstEpisode.audioUrl).toEqual("http://www.nasa.gov/sites/default/files/atoms/audio/ep200_liftoff_live.mp3");
 
     });
-
-    // it("should have 10 episodes", () => {
-    //   const { episodes, } = formatResponse(jsonMockNasaRssResponse, 10);
-
-    //   expect(episodes.length).toEqual(10);
-    // });
   });
 });

@@ -1,17 +1,7 @@
 import { getNasaRssResponse, getSortedNasaRssResponse } from "../nasa-rss-feed-service";
 import { ORDER } from "../../utilities/nasa-rss-feed-types";
-// import rssFeedResponse from "../../utilities/__tests__/json-nasa-rss-mock.json";
 
 describe("NASA RSS feed service", () => {
-  // describe("isValidQuery", () => {
-  //   it("should return true when query is asc", () => {
-  //     expect(isValidQuery("asc")).toBeTruthy();
-  //   });
-  //   it("should return true when query is dsc", () => {
-  //     expect(isValidQuery("dsc")).toBeTruthy();
-  //   });
-  // });
-
   describe("getNasaRssFeedService", () => {
     it("should meet basic requirements", async () => {
       // const spy = jest.fn();
@@ -38,11 +28,5 @@ describe("NASA RSS feed service", () => {
 
       expect(response.episodes[0].title).toEqual("International Space Station");
     });
-
-    // it("should limit episodes to 2", async () => {
-    //   const response = getSortedNasaRssResponse(ORDER.DSC)
-
-    //   expect(response.episodes.length).toEqual(2);
-    // });
   });
 });
