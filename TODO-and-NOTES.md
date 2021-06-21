@@ -1,5 +1,5 @@
-Project Todo notes
-
+Project Todo and notes
+## TODO
 - project setup 
   - eslint (configure eslint to drive prettier)
   - jest
@@ -9,11 +9,12 @@ Project Todo notes
   - layer architecture 
 - investigate TypeScript
 
-NOTES
- - implement controllers and service,
-    - this way the controllers is just handling the final response
-    - this is also a well know pattern
-    - could have left in the controller given its such a small example (for now)
-    - could use dependency injection to pass services and integration into each other, this would make testing a little easier (less need for mocking), but of course complicate the scenario further.
+## NOTES
+ - implement controllers and service;
+    - could have left everything in the controller given its such a small example, but good to separate concerns before getting to large and complex (i know, never going to happen here!)
+    - controllers are now just really responsible for send back response/error
+    - services are the place for business logic
+    - common pattern
+    - could use dependency injection to pass services and integration into each other, this would make testing a little easier (less need for mocking) and the services more reusable and composable, but of course this would complicate the scenario further.
 - a couple of small TypeScript issues remaining but ran out of time
 - classes in some places might make an improvement
